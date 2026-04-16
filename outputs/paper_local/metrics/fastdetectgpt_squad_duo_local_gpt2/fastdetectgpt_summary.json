@@ -1,0 +1,32 @@
+{
+  "detector": "fastdetectgpt_surrogate",
+  "sampling_model_name_or_path": ".\\models\\gpt2",
+  "scoring_model_name_or_path": ".\\models\\gpt2",
+  "score_sign": -1.0,
+  "val_roc_auc": 1.0,
+  "threshold": 4.194474220275879,
+  "metrics": {
+    "roc_auc": 1.0,
+    "pr_auc": 1.0,
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "tpr_at_fpr_1pct": 1.0,
+    "tpr_at_fpr_5pct": 1.0,
+    "tpr_at_fpr_10pct": 1.0,
+    "threshold": 4.194474220275879,
+    "roc_auc_ci95": [
+      0.9999999999999999,
+      1.0
+    ],
+    "pr_auc_ci95": [
+      1.0,
+      1.0
+    ]
+  },
+  "artifacts": {
+    "roc_plot": "outputs\\paper_local\\metrics\\fastdetectgpt_squad_duo_local_gpt2\\plots\\fastdetectgpt_surrogate_roc.svg",
+    "pr_plot": "outputs\\paper_local\\metrics\\fastdetectgpt_squad_duo_local_gpt2\\plots\\fastdetectgpt_surrogate_pr.svg",
+    "hist_plot": "outputs\\paper_local\\metrics\\fastdetectgpt_squad_duo_local_gpt2\\plots\\fastdetectgpt_surrogate_hist.svg",
+    "metrics_json": "outputs\\paper_local\\metrics\\fastdetectgpt_squad_duo_local_gpt2\\fastdetectgpt_surrogate_metrics.json"
+  }
+}

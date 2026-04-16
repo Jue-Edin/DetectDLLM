@@ -1,0 +1,68 @@
+{
+  "rows": [
+    {
+      "detector": "baseline",
+      "mask_ratio": 0.3,
+      "score_sign": -1.0,
+      "val_roc_auc": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "accuracy": 0.9,
+      "balanced_accuracy": 0.9,
+      "tpr@1%fpr": 1.0,
+      "tpr@5%fpr": 1.0,
+      "tpr@10%fpr": 1.0,
+      "threshold": 5.816977500915527
+    },
+    {
+      "detector": "duo_analytic",
+      "mask_ratio": 0.3,
+      "score_sign": -1.0,
+      "val_roc_auc": 0.8699999999999999,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "accuracy": 0.7,
+      "balanced_accuracy": 0.7,
+      "tpr@1%fpr": 1.0,
+      "tpr@5%fpr": 1.0,
+      "tpr@10%fpr": 1.0,
+      "threshold": 10.369771690215806
+    }
+  ],
+  "summary": {
+    "best_duo_analytic": {
+      "mask_ratio": 0.3,
+      "score_sign": -1.0,
+      "threshold": 10.369771690215806,
+      "selection": "highest validation ROC-AUC",
+      "artifacts": {
+        "roc_plot": "outputs\\paper_local\\metrics\\analytic_squad_duo_local\\plots\\duo_analytic_roc.svg",
+        "pr_plot": "outputs\\paper_local\\metrics\\analytic_squad_duo_local\\plots\\duo_analytic_pr.svg",
+        "hist_plot": "outputs\\paper_local\\metrics\\analytic_squad_duo_local\\plots\\duo_analytic_hist.svg",
+        "metrics_json": "outputs\\paper_local\\metrics\\analytic_squad_duo_local\\duo_analytic_metrics.json"
+      }
+    }
+  },
+  "detector_method": "analytic",
+  "tokenizer_load_report": {
+    "loader": "AutoTokenizer.from_pretrained",
+    "path": "models\\duo-distilled\\duo-distilled",
+    "mode": "offline",
+    "attempts": []
+  },
+  "tokenizer_vocab_audit": {
+    "model_vocab_size": 50258,
+    "tokenizer_base_vocab_size": 50257,
+    "tokenizer_total_vocab_size": 50258,
+    "mask_token": "<|mask|>",
+    "mask_token_id": 50257,
+    "pad_token": "<|endoftext|>",
+    "pad_token_id": 50256,
+    "eos_token": "<|endoftext|>",
+    "eos_token_id": 50256,
+    "aligned_total_vocab": true,
+    "expected_mask_token_id": 50257,
+    "mask_token_matches_expected_last_id": true,
+    "status": "aligned"
+  }
+}

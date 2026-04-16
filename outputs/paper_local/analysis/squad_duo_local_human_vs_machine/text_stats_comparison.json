@@ -1,0 +1,364 @@
+{
+  "rows": [
+    {
+      "split": "overall",
+      "feature": "char_count",
+      "human_mean": 895.26,
+      "machine_mean": 766.18,
+      "machine_minus_human": -129.08000000000004,
+      "cohen_d": -0.3772364317344621,
+      "cliffs_delta": -0.205
+    },
+    {
+      "split": "overall",
+      "feature": "word_count",
+      "human_mean": 149.65,
+      "machine_mean": 89.16,
+      "machine_minus_human": -60.49000000000001,
+      "cohen_d": -1.187337693514722,
+      "cliffs_delta": -0.6367
+    },
+    {
+      "split": "overall",
+      "feature": "token_length",
+      "human_mean": 188.3,
+      "machine_mean": 188.3,
+      "machine_minus_human": 0.0,
+      "cohen_d": 0.0,
+      "cliffs_delta": 0.0
+    },
+    {
+      "split": "overall",
+      "feature": "sentence_count",
+      "human_mean": 7.63,
+      "machine_mean": 1.63,
+      "machine_minus_human": -6.0,
+      "cohen_d": -2.4244960565993168,
+      "cliffs_delta": -0.949
+    },
+    {
+      "split": "overall",
+      "feature": "avg_word_length",
+      "human_mean": 4.849174075511092,
+      "machine_mean": 7.105098803071599,
+      "machine_minus_human": 2.255924727560507,
+      "cohen_d": 4.081669782574733,
+      "cliffs_delta": 0.9982
+    },
+    {
+      "split": "overall",
+      "feature": "type_token_ratio",
+      "human_mean": 0.659574302435601,
+      "machine_mean": 0.8839453363114833,
+      "machine_minus_human": 0.2243710338758823,
+      "cohen_d": 3.1148068395952353,
+      "cliffs_delta": 0.9579
+    },
+    {
+      "split": "overall",
+      "feature": "punct_ratio",
+      "human_mean": 0.0321634501912522,
+      "machine_mean": 0.014990408354895018,
+      "machine_minus_human": -0.017173041836357178,
+      "cohen_d": -0.6325151002123215,
+      "cliffs_delta": -0.7844
+    },
+    {
+      "split": "overall",
+      "feature": "digit_ratio",
+      "human_mean": 0.020238409073053125,
+      "machine_mean": 0.0033780258591886592,
+      "machine_minus_human": -0.016860383213864467,
+      "cohen_d": -1.3176161426694968,
+      "cliffs_delta": -0.7575
+    },
+    {
+      "split": "overall",
+      "feature": "uppercase_ratio",
+      "human_mean": 0.05631062222877314,
+      "machine_mean": 0.01577421407349485,
+      "machine_minus_human": -0.040536408155278286,
+      "cohen_d": -2.8020917030610337,
+      "cliffs_delta": -0.949
+    },
+    {
+      "split": "overall",
+      "feature": "whitespace_ratio",
+      "human_mean": 0.16025072824085101,
+      "machine_mean": 0.11175282113080388,
+      "machine_minus_human": -0.04849790711004713,
+      "cohen_d": -4.681699836400053,
+      "cliffs_delta": -0.9992
+    },
+    {
+      "split": "train",
+      "feature": "char_count",
+      "human_mean": 876.1647058823529,
+      "machine_mean": 766.035294117647,
+      "machine_minus_human": -110.12941176470588,
+      "cohen_d": -0.33576754858042973,
+      "cliffs_delta": -0.19889273356401385
+    },
+    {
+      "split": "train",
+      "feature": "word_count",
+      "human_mean": 146.24705882352941,
+      "machine_mean": 88.78823529411764,
+      "machine_minus_human": -57.458823529411774,
+      "cohen_d": -1.1923061193096416,
+      "cliffs_delta": -0.6466435986159169
+    },
+    {
+      "split": "train",
+      "feature": "token_length",
+      "human_mean": 183.9294117647059,
+      "machine_mean": 183.9294117647059,
+      "machine_minus_human": 0.0,
+      "cohen_d": 0.0,
+      "cliffs_delta": 0.0
+    },
+    {
+      "split": "train",
+      "feature": "sentence_count",
+      "human_mean": 7.423529411764706,
+      "machine_mean": 1.6235294117647059,
+      "machine_minus_human": -5.800000000000001,
+      "cohen_d": -2.5684242398945702,
+      "cliffs_delta": -0.9483737024221454
+    },
+    {
+      "split": "train",
+      "feature": "avg_word_length",
+      "human_mean": 4.8591586100971655,
+      "machine_mean": 7.149805910441672,
+      "machine_minus_human": 2.2906473003445065,
+      "cohen_d": 4.193545270499022,
+      "cliffs_delta": 0.9988927335640139
+    },
+    {
+      "split": "train",
+      "feature": "type_token_ratio",
+      "human_mean": 0.661743545636106,
+      "machine_mean": 0.8829728081744437,
+      "machine_minus_human": 0.22122926253833763,
+      "cohen_d": 3.1969250151807027,
+      "cliffs_delta": 0.9584775086505191
+    },
+    {
+      "split": "train",
+      "feature": "punct_ratio",
+      "human_mean": 0.03199164294262685,
+      "machine_mean": 0.01525688644056939,
+      "machine_minus_human": -0.01673475650205746,
+      "cohen_d": -0.5922619719555064,
+      "cliffs_delta": -0.7818685121107266
+    },
+    {
+      "split": "train",
+      "feature": "digit_ratio",
+      "human_mean": 0.020121482902188233,
+      "machine_mean": 0.0032488835045081195,
+      "machine_minus_human": -0.016872599397680113,
+      "cohen_d": -1.266165224400106,
+      "cliffs_delta": -0.7397923875432526
+    },
+    {
+      "split": "train",
+      "feature": "uppercase_ratio",
+      "human_mean": 0.05573132112637009,
+      "machine_mean": 0.015378016935919028,
+      "machine_minus_human": -0.040353304190451064,
+      "cohen_d": -2.788647912466764,
+      "cliffs_delta": -0.9490657439446367
+    },
+    {
+      "split": "train",
+      "feature": "whitespace_ratio",
+      "human_mean": 0.1600689488645435,
+      "machine_mean": 0.1118292319096145,
+      "machine_minus_human": -0.04823971695492901,
+      "cohen_d": -4.745238589308528,
+      "cliffs_delta": -1.0
+    },
+    {
+      "split": "val",
+      "feature": "char_count",
+      "human_mean": 955.3,
+      "machine_mean": 696.8,
+      "machine_minus_human": -258.5,
+      "cohen_d": -0.5929852568845939,
+      "cliffs_delta": -0.34
+    },
+    {
+      "split": "val",
+      "feature": "word_count",
+      "human_mean": 163.8,
+      "machine_mean": 84.2,
+      "machine_minus_human": -79.60000000000001,
+      "cohen_d": -1.1332359447850764,
+      "cliffs_delta": -0.57
+    },
+    {
+      "split": "val",
+      "feature": "token_length",
+      "human_mean": 208.1,
+      "machine_mean": 208.1,
+      "machine_minus_human": 0.0,
+      "cohen_d": 0.0,
+      "cliffs_delta": 0.0
+    },
+    {
+      "split": "val",
+      "feature": "sentence_count",
+      "human_mean": 8.2,
+      "machine_mean": 1.7,
+      "machine_minus_human": -6.499999999999999,
+      "cohen_d": -1.731367956839571,
+      "cliffs_delta": -0.93
+    },
+    {
+      "split": "val",
+      "feature": "avg_word_length",
+      "human_mean": 4.6903035693790605,
+      "machine_mean": 6.718249044239687,
+      "machine_minus_human": 2.0279454748606263,
+      "cohen_d": 3.319886662516951,
+      "cliffs_delta": 1.0
+    },
+    {
+      "split": "val",
+      "feature": "type_token_ratio",
+      "human_mean": 0.6615750610292379,
+      "machine_mean": 0.8987060664869663,
+      "machine_minus_human": 0.23713100545772836,
+      "cohen_d": 2.6119915962562232,
+      "cliffs_delta": 0.92
+    },
+    {
+      "split": "val",
+      "feature": "punct_ratio",
+      "human_mean": 0.03557652576918295,
+      "machine_mean": 0.01856371019270211,
+      "machine_minus_human": -0.017012815576480843,
+      "cohen_d": -0.701253232224077,
+      "cliffs_delta": -0.72
+    },
+    {
+      "split": "val",
+      "feature": "digit_ratio",
+      "human_mean": 0.023255338130753353,
+      "machine_mean": 0.005071206187144246,
+      "machine_minus_human": -0.018184131943609107,
+      "cohen_d": -1.7472200644048468,
+      "cliffs_delta": -0.84
+    },
+    {
+      "split": "val",
+      "feature": "uppercase_ratio",
+      "human_mean": 0.06183606639725233,
+      "machine_mean": 0.021068474950108673,
+      "machine_minus_human": -0.04076759144714366,
+      "cohen_d": -2.4105601913077943,
+      "cliffs_delta": -0.88
+    },
+    {
+      "split": "val",
+      "feature": "whitespace_ratio",
+      "human_mean": 0.1632599350662986,
+      "machine_mean": 0.10933127627690169,
+      "machine_minus_human": -0.05392865878939691,
+      "cohen_d": -4.691274228045361,
+      "cliffs_delta": -1.0
+    },
+    {
+      "split": "test",
+      "feature": "char_count",
+      "human_mean": 1099.8,
+      "machine_mean": 907.4,
+      "machine_minus_human": -192.39999999999998,
+      "cohen_d": -0.48399337832236117,
+      "cliffs_delta": -0.28
+    },
+    {
+      "split": "test",
+      "feature": "word_count",
+      "human_mean": 179.2,
+      "machine_mean": 105.4,
+      "machine_minus_human": -73.79999999999998,
+      "cohen_d": -1.2944380681674887,
+      "cliffs_delta": -0.68
+    },
+    {
+      "split": "test",
+      "feature": "token_length",
+      "human_mean": 223.0,
+      "machine_mean": 223.0,
+      "machine_minus_human": 0.0,
+      "cohen_d": 0.0,
+      "cliffs_delta": 0.0
+    },
+    {
+      "split": "test",
+      "feature": "sentence_count",
+      "human_mean": 10.0,
+      "machine_mean": 1.6,
+      "machine_minus_human": -8.4,
+      "cohen_d": -2.898275349237888,
+      "cliffs_delta": -1.0
+    },
+    {
+      "split": "test",
+      "feature": "avg_word_length",
+      "human_mean": 4.997177999811913,
+      "machine_mean": 7.118777495444162,
+      "machine_minus_human": 2.121599495632249,
+      "cohen_d": 4.738772000479017,
+      "cliffs_delta": 1.0
+    },
+    {
+      "split": "test",
+      "feature": "type_token_ratio",
+      "human_mean": 0.6186956508397399,
+      "machine_mean": 0.8709568542901878,
+      "machine_minus_human": 0.2522612034504479,
+      "cohen_d": 2.8509963336963247,
+      "cliffs_delta": 0.92
+    },
+    {
+      "split": "test",
+      "feature": "punct_ratio",
+      "human_mean": 0.028258022262021714,
+      "machine_mean": 0.00331367722281651,
+      "machine_minus_human": -0.024944345039205205,
+      "cohen_d": -4.74323645716862,
+      "cliffs_delta": -1.0
+    },
+    {
+      "split": "test",
+      "feature": "digit_ratio",
+      "human_mean": 0.01619229586235593,
+      "machine_mean": 0.0021870852328466734,
+      "machine_minus_human": -0.014005210629509254,
+      "cohen_d": -1.916759907541027,
+      "cliffs_delta": -0.92
+    },
+    {
+      "split": "test",
+      "feature": "uppercase_ratio",
+      "human_mean": 0.05510785263266667,
+      "machine_mean": 0.011921043659056198,
+      "machine_minus_human": -0.04318680897361047,
+      "cohen_d": -6.097885902969849,
+      "cliffs_delta": -1.0
+    },
+    {
+      "split": "test",
+      "feature": "whitespace_ratio",
+      "human_mean": 0.15732256398718314,
+      "machine_mean": 0.11529692759882859,
+      "machine_minus_human": -0.04202563638835455,
+      "cohen_d": -3.364232849290324,
+      "cliffs_delta": -1.0
+    }
+  ]
+}

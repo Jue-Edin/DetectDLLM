@@ -1,0 +1,50 @@
+{
+  "dataset_tag": "squad_duo_local",
+  "human_path": "data/human/squad_gemma-2b-instruct_rewrite.original.json",
+  "checkpoint_dir": "models/duo-distilled/duo-distilled",
+  "tokenizer_dir": "models/duo-distilled/duo-distilled",
+  "tokenizer_load_report": {
+    "loader": "AutoTokenizer.from_pretrained",
+    "path": "models\\duo-distilled\\duo-distilled",
+    "mode": "offline",
+    "attempts": []
+  },
+  "tokenizer_vocab_audit": {
+    "model_vocab_size": 50258,
+    "tokenizer_base_vocab_size": 50257,
+    "tokenizer_total_vocab_size": 50258,
+    "mask_token": "<|mask|>",
+    "mask_token_id": 50257,
+    "pad_token": "<|endoftext|>",
+    "pad_token_id": 50256,
+    "eos_token": "<|endoftext|>",
+    "eos_token_id": 50256,
+    "aligned_total_vocab": true,
+    "expected_mask_token_id": 50257,
+    "mask_token_matches_expected_last_id": true,
+    "status": "aligned"
+  },
+  "generation_steps": 8,
+  "generation_strategy": "top_p",
+  "temperature": 1.0,
+  "top_p": 0.9,
+  "prompt_fraction": 0.25,
+  "approximation_mode": "iterative_masked_denoising_generation",
+  "splits": {
+    "train": {
+      "dataset_path": "outputs\\paper_local\\datasets\\squad_duo_local\\dataset_train.json",
+      "metadata_path": "outputs\\paper_local\\datasets\\squad_duo_local\\dataset_train_metadata.json",
+      "count": 85
+    },
+    "val": {
+      "dataset_path": "outputs\\paper_local\\datasets\\squad_duo_local\\dataset_val.json",
+      "metadata_path": "outputs\\paper_local\\datasets\\squad_duo_local\\dataset_val_metadata.json",
+      "count": 10
+    },
+    "test": {
+      "dataset_path": "outputs\\paper_local\\datasets\\squad_duo_local\\dataset_test.json",
+      "metadata_path": "outputs\\paper_local\\datasets\\squad_duo_local\\dataset_test_metadata.json",
+      "count": 5
+    }
+  }
+}

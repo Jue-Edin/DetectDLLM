@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the accompanying paper and the upstream projects listed in docs/BORROWING_AND_MODIFICATIONS.md."
+title: "DetectDLLM"
+type: software
+authors:
+  - family-names: "Project"
+    given-names: "DetectDLLM"
+license: "MIT"

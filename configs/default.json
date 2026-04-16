@@ -1,0 +1,30 @@
+{
+  "seed": 7,
+  "output_root": "outputs/paper_local",
+  "checkpoint_dir": "models/duo-distilled",
+  "tokenizer_dir": "models/duo-distilled",
+  "allow_online_tokenizer": false,
+  "human_path": "data/human/squad_gemma-2b-instruct_rewrite.original.json",
+  "generation_steps": 8,
+  "generation_strategy": "top_p",
+  "generation_temperature": 1.0,
+  "generation_top_p": 0.9,
+  "prompt_fraction": 0.25,
+  "dataset_tag": "squad_duo_local",
+  "dataset_unconditional_only": true,
+  "mask_ratios": [
+    0.3
+  ],
+  "corruption_seeds": [
+    11,
+    17,
+    23
+  ],
+  "bootstrap_samples": 200,
+  "fastdetectgpt": {
+    "sampling_model_name_or_path": "gpt2",
+    "scoring_model_name_or_path": "gpt2",
+    "local_files_only": false,
+    "max_length": 512
+  }
+}
