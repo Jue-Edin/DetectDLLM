@@ -49,6 +49,7 @@ class DuoAdapter:
                 allow_online=self.allow_online_tokenizer,
             )
             self.vocab_audit = self._build_vocab_audit()
+            self._assert_vocab_alignment()
         return self
 
     def _require_model(self) -> DUOLocal:
@@ -63,6 +64,23 @@ class DuoAdapter:
         if self.tokenizer is None:
             raise RuntimeError("Tokenizer failed to load.")
         return self.tokenizer
+
+
+    def _assert_vocab_alignment(self) -> None:
+        """Fail fast if tokenizer ids cannot be safely used with the DUO logits.
+
+        The detector gathers log_probs[..., token_id] using token ids produced by
+        this tokenizer. Therefore the tokenizer vocabulary size, model output
+        vocabulary size, and mask token id must agree exactly. Recording the audit
+        in the manifest is useful, but a silent mismatch would make every
+        log-probability meaningless, so we hard-fail here.
+        """
+        audit = self.vocab_audit or {}
+        if audit.get("status") != "aligned":
+            raise ValueError(
+                "DUO tokenizer/model vocabulary mismatch; refusing to score or generate. "
+                f"Audit: {audit}"
+            )
 
     def _build_vocab_audit(self) -> dict[str, Any]:
         model = self._require_model()
@@ -94,6 +112,14 @@ class DuoAdapter:
         tokenizer = self._require_tokenizer()
         ids = [tokenizer.pad_token_id, tokenizer.eos_token_id, tokenizer.bos_token_id]
         return [int(token_id) for token_id in ids if token_id is not None]
+
+    @property
+    def generation_forbidden_token_ids(self) -> list[int]:
+        tokenizer = self._require_tokenizer()
+        ids = set(self.special_token_ids)
+        if tokenizer.mask_token_id is not None:
+            ids.add(int(tokenizer.mask_token_id))
+        return sorted(ids)
 
     def tokenize_texts(
         self,
@@ -185,26 +211,29 @@ class DuoAdapter:
         temperature: float,
         top_p: float,
         seed: int,
+        forbidden_token_ids: list[int] | None = None,
     ) -> torch.Tensor:
         if strategy == "greedy" or temperature <= 0:
             return logits.argmax(dim=-1)
         rng = np.random.default_rng(seed)
         rows = []
+        banned = np.array(sorted(set(forbidden_token_ids or [])), dtype=np.int64)
         for row in logits.detach().float().cpu().numpy():
+            row = row.copy()
+            if banned.size:
+                row[banned] = -1e9
             scaled = row / max(temperature, 1e-6)
             shifted = scaled - np.max(scaled)
             probs = np.exp(shifted)
             probs = probs / probs.sum()
             if strategy == "top_p":
+                clipped_top_p = float(np.clip(top_p, 0.0, 1.0))
                 order = np.argsort(-probs)
                 sorted_probs = probs[order]
                 cumulative = np.cumsum(sorted_probs)
-                cutoff = cumulative <= top_p
-                if not np.any(cutoff):
-                    cutoff[0] = True
-                else:
-                    cutoff[np.argmax(cutoff)] = True
-                kept_indices = order[cutoff]
+                keep_count = int(np.searchsorted(cumulative, clipped_top_p, side="left") + 1)
+                keep_count = max(1, min(keep_count, len(order)))
+                kept_indices = order[:keep_count]
                 kept_probs = probs[kept_indices]
                 kept_probs = kept_probs / kept_probs.sum()
                 sampled = rng.choice(kept_indices, p=kept_probs)
@@ -228,6 +257,7 @@ class DuoAdapter:
         current_ids = current_ids.clone().to(self.device)
         current_mask = current_mask.clone().to(self.device)
         lengths = lengths.to(self.device)
+        forbidden_token_ids = self.generation_forbidden_token_ids
         for step_idx in range(num_steps):
             remaining = current_mask.sum(dim=1)
             if int(remaining.sum().item()) == 0:
@@ -246,6 +276,7 @@ class DuoAdapter:
                     temperature=temperature,
                     top_p=top_p,
                     seed=seed + (row_idx * 1009) + step_idx,
+                    forbidden_token_ids=forbidden_token_ids,
                 )
                 current_ids[row_idx, position_tensor] = sampled
                 current_mask[row_idx, position_tensor] = False
@@ -286,6 +317,7 @@ class DuoAdapter:
         self,
         target_lengths: list[int],
         prompt_texts: list[str] | None = None,
+        prompt_token_id_seqs: list[list[int]] | None = None,
         num_steps: int = 8,
         strategy: str = "top_p",
         temperature: float = 1.0,
@@ -302,12 +334,23 @@ class DuoAdapter:
         current_mask = torch.zeros((batch_size, max_length), dtype=torch.bool)
         prompt_lengths = []
         prompt_token_ids: list[list[int]] = []
-        if prompt_texts is None:
-            prompt_texts = [""] * batch_size
-        for text, target_length in zip(prompt_texts, target_lengths):
-            token_ids = tokenizer.encode(text, add_special_tokens=False)
-            prompt_token_ids.append(token_ids[:target_length])
-            prompt_lengths.append(min(len(token_ids), target_length))
+        if prompt_token_id_seqs is not None:
+            if len(prompt_token_id_seqs) != batch_size:
+                raise ValueError(
+                    "prompt_token_id_seqs must have the same batch size as target_lengths, "
+                    f"got {len(prompt_token_id_seqs)} vs {batch_size}."
+                )
+            for token_ids, target_length in zip(prompt_token_id_seqs, target_lengths):
+                clipped = list(token_ids[:target_length])
+                prompt_token_ids.append(clipped)
+                prompt_lengths.append(min(len(clipped), target_length))
+        else:
+            if prompt_texts is None:
+                prompt_texts = [""] * batch_size
+            for text, target_length in zip(prompt_texts, target_lengths):
+                token_ids = tokenizer.encode(text, add_special_tokens=False)
+                prompt_token_ids.append(token_ids[:target_length])
+                prompt_lengths.append(min(len(token_ids), target_length))
         for row_idx, target_length in enumerate(target_lengths):
             prompt_ids = prompt_token_ids[row_idx]
             prompt_length = prompt_lengths[row_idx]

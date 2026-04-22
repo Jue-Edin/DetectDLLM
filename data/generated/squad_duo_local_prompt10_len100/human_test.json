@@ -1,0 +1,62 @@
+[
+  {
+    "example_id": "97179df034c53a2c187d43617b1414d2422a428e52b9fe441590c9c812c9726f",
+    "source_id": "data/human/squad_gemma-2b-instruct_rewrite.original.json::23",
+    "split": "test",
+    "prompt_length": 10,
+    "prompt_text": "The Rev. John J. Cavanaugh, C",
+    "token_length": 100,
+    "segment_index": 0,
+    "segment_start": 0,
+    "segment_end": 100,
+    "text": "The Rev. John J. Cavanaugh, C.S.C. served as president from 1946 to 1952. Cavanaugh's legacy at Notre Dame in the post-war years was devoted to raising academic standards and reshaping the university administration to suit it to an enlarged educational mission and an expanded student body and stressing advanced studies and research at a time when Notre Dame quadrupled in student census, undergraduate enrollment increased by more than half, and graduate student enrollment grew fivefold. Cavanaugh also established the"
+  },
+  {
+    "example_id": "ae974a7aeaa0f0648439ad41a53d8887ba1a1db69dafc654f7f0f6b7f90d5f68",
+    "source_id": "data/human/squad_gemma-2b-instruct_rewrite.original.json::78",
+    "split": "test",
+    "prompt_length": 10,
+    "prompt_text": "On December 13, 2013, Beyoncé unexpectedly released",
+    "token_length": 100,
+    "segment_index": 0,
+    "segment_start": 0,
+    "segment_end": 100,
+    "text": "On December 13, 2013, Beyoncé unexpectedly released her eponymous fifth studio album on the iTunes Store without any prior announcement or promotion. The album debuted atop the Billboard 200 chart, giving Beyoncé her fifth consecutive number-one album in the US. This made her the first woman in the chart's history to have her first five studio albums debut at number one. Beyoncé received critical acclaim and commercial success, selling one million digital copies worldwide in six days; The New York Times noted the album's"
+  },
+  {
+    "example_id": "07b28652b2d3b061a3352c2c10cee9a9dd1225817f40056c8e955122353a6897",
+    "source_id": "data/human/squad_gemma-2b-instruct_rewrite.original.json::5",
+    "split": "test",
+    "prompt_length": 10,
+    "prompt_text": "The university first offered graduate degrees, in the form",
+    "token_length": 100,
+    "segment_index": 0,
+    "segment_start": 0,
+    "segment_end": 100,
+    "text": "The university first offered graduate degrees, in the form of a Master of Arts (MA), in the 1854–1855 academic year. The program expanded to include Master of Laws (LL.M.) and Master of Civil Engineering in its early stages of growth, before a formal graduate school education was developed with a thesis not required to receive the degrees. This changed in 1924 with formal requirements developed for graduate degrees, including offering Doctorate (PhD) degrees. Today each of the five colleges offer"
+  },
+  {
+    "example_id": "9260ca36d345cfb112adab485c4e68f3e0ea49db81b72e428f03bc94bd2164df",
+    "source_id": "data/human/squad_gemma-2b-instruct_rewrite.original.json::11",
+    "split": "test",
+    "prompt_length": 10,
+    "prompt_text": "In 1882, Albert Zahm (John Zah",
+    "token_length": 100,
+    "segment_index": 0,
+    "segment_start": 0,
+    "segment_end": 100,
+    "text": "In 1882, Albert Zahm (John Zahm's brother) built an early wind tunnel used to compare lift to drag of aeronautical models. Around 1899, Professor Jerome Green became the first American to send a wireless message. In 1931, Father Julius Nieuwland performed early work on basic reactions that was used to create neoprene. Study of nuclear physics at the university began with the building of a nuclear accelerator in 1936, and continues now partly through a partnership in the Joint Institute"
+  },
+  {
+    "example_id": "8d0b0d5497914be4f5534e6d78436eb178ba463d3416d2bd18c9502639c0860e",
+    "source_id": "data/human/squad_gemma-2b-instruct_rewrite.original.json::64",
+    "split": "test",
+    "prompt_length": 10,
+    "prompt_text": "In July 2002, Beyoncé continued her acting career",
+    "token_length": 100,
+    "segment_index": 0,
+    "segment_start": 0,
+    "segment_end": 100,
+    "text": "In July 2002, Beyoncé continued her acting career playing Foxxy Cleopatra alongside Mike Myers in the comedy film, Austin Powers in Goldmember, which spent its first weekend atop the US box office and grossed $73 million. Beyoncé released \"Work It Out\" as the lead single from its soundtrack album which entered the top ten in the UK, Norway, and Belgium. In 2003, Beyoncé starred opposite Cuba Gooding, Jr., in the musical comedy The Fighting Temptations as"
+  }
+]

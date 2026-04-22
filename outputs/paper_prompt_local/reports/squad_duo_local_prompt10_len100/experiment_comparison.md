@@ -1,0 +1,7 @@
+# Experiment comparison (A/B/C)
+
+| experiment | detector | generator_model | scoring_model | reference_model | dataset_dir | data_export_dir | val_roc_auc | roc_auc | pr_auc | accuracy | balanced_accuracy | tpr@1%fpr | tpr@5%fpr | tpr@10%fpr | threshold | selected_mask_ratio | notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | our_duo_analytic | duo-distilled | duo-distilled | duo-distilled | outputs\paper_prompt_local\datasets\squad_duo_local_prompt10_len100 | data\generated\squad_duo_local_prompt10_len100 | 0.8025 | 0.6000 | 0.5294 | 0.5000 | 0.5000 | 0.0000 | 0.0000 | 0.0000 | 8.8554 | 0.3000 | DLLM-specific white-box detector under DUO. |
+| B | fastdetectgpt_surrogate | duo-distilled | gpt2 | gpt2 | outputs\paper_prompt_local\datasets\squad_duo_local_prompt10_len100 | data\generated\squad_duo_local_prompt10_len100 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 3.0486 |  | Fast-DetectGPT surrogate baseline; GPT-2 is used as the AR scoring/reference model, not as the generator of the machine texts. |
+| C | duo_plain_meanlogprob | duo-distilled | duo-distilled | duo-distilled | outputs\paper_prompt_local\datasets\squad_duo_local_prompt10_len100 | data\generated\squad_duo_local_prompt10_len100 | 1.0000 | 1.0000 | 1.0000 | 0.9000 | 0.9000 | 1.0000 | 1.0000 | 1.0000 | 6.6169 | 0.3000 | Same-source DUO ablation without analytic normalization. |

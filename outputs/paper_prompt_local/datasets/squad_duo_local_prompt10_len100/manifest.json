@@ -1,0 +1,91 @@
+{
+  "dataset_tag": "squad_duo_local_prompt10_len100",
+  "human_path": "data/human/squad_gemma-2b-instruct_rewrite.original.json",
+  "checkpoint_dir": "models/duo-distilled",
+  "tokenizer_dir": "models/duo-distilled",
+  "tokenizer_load_report": {
+    "loader": "AutoTokenizer.from_pretrained",
+    "path": "models\\duo-distilled",
+    "mode": "offline",
+    "attempts": []
+  },
+  "tokenizer_vocab_audit": {
+    "model_vocab_size": 50258,
+    "tokenizer_base_vocab_size": 50257,
+    "tokenizer_total_vocab_size": 50258,
+    "mask_token": "<|mask|>",
+    "mask_token_id": 50257,
+    "pad_token": "<|endoftext|>",
+    "pad_token_id": 50256,
+    "eos_token": "<|endoftext|>",
+    "eos_token_id": 50256,
+    "aligned_total_vocab": true,
+    "expected_mask_token_id": 50257,
+    "mask_token_matches_expected_last_id": true,
+    "status": "aligned"
+  },
+  "generation_steps": 8,
+  "generation_strategy": "top_p",
+  "generation_batch_size": 4,
+  "temperature": 1.0,
+  "top_p": 0.9,
+  "prompt_mode": "fixed_tokens",
+  "prompt_fraction": 0.25,
+  "prompt_tokens": 10,
+  "target_total_tokens": 100,
+  "window_stride": 100,
+  "max_windows_per_source": 1,
+  "max_examples": 100,
+  "approximation_mode": "iterative_masked_denoising_generation",
+  "splits": {
+    "train": {
+      "dataset_path": "outputs\\paper_prompt_local\\datasets\\squad_duo_local_prompt10_len100\\dataset_train.json",
+      "metadata_path": "outputs\\paper_prompt_local\\datasets\\squad_duo_local_prompt10_len100\\dataset_train_metadata.json",
+      "count": 81
+    },
+    "val": {
+      "dataset_path": "outputs\\paper_prompt_local\\datasets\\squad_duo_local_prompt10_len100\\dataset_val.json",
+      "metadata_path": "outputs\\paper_prompt_local\\datasets\\squad_duo_local_prompt10_len100\\dataset_val_metadata.json",
+      "count": 9
+    },
+    "test": {
+      "dataset_path": "outputs\\paper_prompt_local\\datasets\\squad_duo_local_prompt10_len100\\dataset_test.json",
+      "metadata_path": "outputs\\paper_prompt_local\\datasets\\squad_duo_local_prompt10_len100\\dataset_test_metadata.json",
+      "count": 5
+    }
+  },
+  "selection_summary": {
+    "total_source_records": 100,
+    "total_candidate_examples": 95,
+    "total_selected_examples": 95,
+    "splits": {
+      "train": {
+        "source_records_seen": 85,
+        "source_records_with_tokens": 85,
+        "source_records_too_short": 4,
+        "candidate_windows": 81,
+        "selected_examples": 81
+      },
+      "val": {
+        "source_records_seen": 10,
+        "source_records_with_tokens": 10,
+        "source_records_too_short": 1,
+        "candidate_windows": 9,
+        "selected_examples": 9
+      },
+      "test": {
+        "source_records_seen": 5,
+        "source_records_with_tokens": 5,
+        "source_records_too_short": 0,
+        "candidate_windows": 5,
+        "selected_examples": 5
+      }
+    }
+  },
+  "prompt_pair_preview_path": "outputs\\paper_prompt_local\\datasets\\squad_duo_local_prompt10_len100\\prompt_pair_preview.json",
+  "readable_data_export": {
+    "export_dir": "data\\generated\\squad_duo_local_prompt10_len100",
+    "manifest_path": "data\\generated\\squad_duo_local_prompt10_len100\\manifest.json",
+    "pair_preview_path": "data\\generated\\squad_duo_local_prompt10_len100\\pair_preview.json"
+  }
+}

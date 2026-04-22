@@ -1,17 +1,22 @@
 {
   "seed": 7,
-  "output_root": "outputs/paper_local",
+  "output_root": "outputs/paper_prompt_local",
   "checkpoint_dir": "models/duo-distilled",
   "tokenizer_dir": "models/duo-distilled",
   "allow_online_tokenizer": false,
   "human_path": "data/human/squad_gemma-2b-instruct_rewrite.original.json",
   "generation_steps": 8,
   "generation_strategy": "top_p",
+  "generation_batch_size": 4,
   "generation_temperature": 1.0,
   "generation_top_p": 0.9,
-  "prompt_fraction": 0.25,
-  "dataset_tag": "squad_duo_local",
-  "dataset_unconditional_only": true,
+  "prompt_tokens": 10,
+  "target_total_tokens": 100,
+  "window_stride": 100,
+  "max_windows_per_source": 1,
+  "max_examples": 100,
+  "dataset_tag": "squad_duo_local_prompt10_len100",
+  "dataset_unconditional_only": false,
   "mask_ratios": [
     0.3
   ],
@@ -25,9 +30,8 @@
     "sampling_model_name_or_path": "models/gpt2",
     "scoring_model_name_or_path": "models/gpt2",
     "local_files_only": true,
-    "max_length": 512
+    "max_length": 128
   },
   "export_data_views": true,
-  "data_export_root": "data/generated",
-  "generation_batch_size": 1
+  "data_export_root": "data/generated"
 }

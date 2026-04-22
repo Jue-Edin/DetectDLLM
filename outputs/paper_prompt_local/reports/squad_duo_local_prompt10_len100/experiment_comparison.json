@@ -1,0 +1,84 @@
+{
+  "config_path": "configs\\paper_prompt_local.json",
+  "dataset_tag": "squad_duo_local_prompt10_len100",
+  "dataset_dir": "outputs\\paper_prompt_local\\datasets\\squad_duo_local_prompt10_len100",
+  "data_export_dir": "data\\generated\\squad_duo_local_prompt10_len100",
+  "build_result": {
+    "output_dir": "outputs\\paper_prompt_local\\datasets\\squad_duo_local_prompt10_len100",
+    "manifest_path": "outputs\\paper_prompt_local\\datasets\\squad_duo_local_prompt10_len100\\manifest.json",
+    "data_export_dir": "data\\generated\\squad_duo_local_prompt10_len100",
+    "dataset_tag": "squad_duo_local_prompt10_len100"
+  },
+  "duo_result": {
+    "output_dir": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100",
+    "rows_path": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\analytic_rows.jsonl",
+    "summary_path": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\analytic_summary.json"
+  },
+  "fastdetectgpt_result": {
+    "output_dir": "outputs\\paper_prompt_local\\metrics\\fastdetectgpt_squad_duo_local_prompt10_len100_gpt2",
+    "rows_path": "outputs\\paper_prompt_local\\metrics\\fastdetectgpt_squad_duo_local_prompt10_len100_gpt2\\fastdetectgpt_rows.jsonl",
+    "summary_path": "outputs\\paper_prompt_local\\metrics\\fastdetectgpt_squad_duo_local_prompt10_len100_gpt2\\fastdetectgpt_summary.json"
+  },
+  "experiments": [
+    {
+      "experiment": "A",
+      "detector": "our_duo_analytic",
+      "generator_model": "duo-distilled",
+      "scoring_model": "duo-distilled",
+      "reference_model": "duo-distilled",
+      "dataset_dir": "outputs\\paper_prompt_local\\datasets\\squad_duo_local_prompt10_len100",
+      "data_export_dir": "data\\generated\\squad_duo_local_prompt10_len100",
+      "val_roc_auc": 0.8024691358024691,
+      "roc_auc": 0.6000000000000001,
+      "pr_auc": 0.5294444444444444,
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "tpr@1%fpr": 0.0,
+      "tpr@5%fpr": 0.0,
+      "tpr@10%fpr": 0.0,
+      "threshold": 8.855431671978467,
+      "selected_mask_ratio": 0.3,
+      "notes": "DLLM-specific white-box detector under DUO."
+    },
+    {
+      "experiment": "B",
+      "detector": "fastdetectgpt_surrogate",
+      "generator_model": "duo-distilled",
+      "scoring_model": "gpt2",
+      "reference_model": "gpt2",
+      "dataset_dir": "outputs\\paper_prompt_local\\datasets\\squad_duo_local_prompt10_len100",
+      "data_export_dir": "data\\generated\\squad_duo_local_prompt10_len100",
+      "val_roc_auc": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "tpr@1%fpr": 1.0,
+      "tpr@5%fpr": 1.0,
+      "tpr@10%fpr": 1.0,
+      "threshold": 3.0486130714416504,
+      "selected_mask_ratio": "",
+      "notes": "Fast-DetectGPT surrogate baseline; GPT-2 is used as the AR scoring/reference model, not as the generator of the machine texts."
+    },
+    {
+      "experiment": "C",
+      "detector": "duo_plain_meanlogprob",
+      "generator_model": "duo-distilled",
+      "scoring_model": "duo-distilled",
+      "reference_model": "duo-distilled",
+      "dataset_dir": "outputs\\paper_prompt_local\\datasets\\squad_duo_local_prompt10_len100",
+      "data_export_dir": "data\\generated\\squad_duo_local_prompt10_len100",
+      "val_roc_auc": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "accuracy": 0.9,
+      "balanced_accuracy": 0.9,
+      "tpr@1%fpr": 1.0,
+      "tpr@5%fpr": 1.0,
+      "tpr@10%fpr": 1.0,
+      "threshold": 6.61688232421875,
+      "selected_mask_ratio": 0.3,
+      "notes": "Same-source DUO ablation without analytic normalization."
+    }
+  ]
+}

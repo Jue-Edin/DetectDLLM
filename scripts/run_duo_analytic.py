@@ -18,6 +18,24 @@ from src.evaluate import compute_metrics, roc_auc, save_bar_plot, save_detector_
 from src.utils import configure_logging, dump_json, dump_jsonl, ensure_dir, load_json, stable_hash
 
 
+DETECTOR_SPECS = [
+    {
+        "detector": "duo_plain_meanlogprob",
+        "score_field": "baseline_score",
+        "summary_key": "best_duo_plain_meanlogprob",
+        "score_key": "duo_plain_meanlogprob_score",
+        "description": "Plain masked-token mean log-probability under DUO.",
+    },
+    {
+        "detector": "duo_analytic",
+        "score_field": "z_score",
+        "summary_key": "best_duo_analytic",
+        "score_key": "duo_analytic_score",
+        "description": "Analytic normalized masked-token score under DUO.",
+    },
+]
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description='Run the analytic DUO detector.')
     parser.add_argument('--config', default='configs/default.json')
@@ -256,9 +274,10 @@ def run_duo_analytic(args: argparse.Namespace) -> dict[str, Any]:
     dump_jsonl(score_rows, rows_path)
 
     results_rows: list[dict[str, Any]] = []
-    summary: dict[str, Any] = {}
-    for detector_name, score_field in [('baseline', 'baseline_score'), ('duo_analytic', 'z_score')]:
-        aggregated = _aggregate_rows(score_rows, score_field=score_field)
+    summary: dict[str, Any] = {'detectors': {}}
+    for detector_spec in DETECTOR_SPECS:
+        detector_name = detector_spec['detector']
+        aggregated = _aggregate_rows(score_rows, score_field=detector_spec['score_field'])
         best_setting = None
         best_val_auc = -1.0
         for mask_ratio in sorted(set(row['mask_ratio'] for row in aggregated)):
@@ -295,25 +314,29 @@ def run_duo_analytic(args: argparse.Namespace) -> dict[str, Any]:
                 'threshold': float(threshold),
             }
             results_rows.append(row)
-            if detector_name == 'duo_analytic' and val_auc > best_val_auc:
+            if val_auc > best_val_auc:
                 best_val_auc = float(val_auc)
                 best_setting = (mask_ratio, score_sign, threshold, test_labels, test_scores, metrics)
-        if detector_name == 'duo_analytic' and best_setting is not None:
+        if best_setting is not None:
             mask_ratio, score_sign, threshold, labels, scores, metrics = best_setting
-            summary['best_duo_analytic'] = {
+            detector_summary = {
+                'detector': detector_name,
+                'description': detector_spec['description'],
                 'mask_ratio': float(mask_ratio),
                 'score_sign': float(score_sign),
                 'threshold': float(threshold),
                 'selection': 'highest validation ROC-AUC',
                 'artifacts': save_detector_artifacts(
                     output_dir=output_dir,
-                    detector_name='duo_analytic',
+                    detector_name=detector_name,
                     labels=labels,
                     scores=scores,
                     metrics=metrics,
-                    score_key='duo_analytic_score',
+                    score_key=detector_spec['score_key'],
                 ),
             }
+            summary['detectors'][detector_name] = detector_summary
+            summary[detector_spec['summary_key']] = detector_summary
 
     summary_path = output_dir / 'analytic_summary.json'
     dump_json(
@@ -326,7 +349,7 @@ def run_duo_analytic(args: argparse.Namespace) -> dict[str, Any]:
         },
         summary_path,
     )
-    save_markdown_table(results_rows, output_dir / 'analytic_results.md', 'Analytic DUO Detector Results')
+    save_markdown_table(results_rows, output_dir / 'analytic_results.md', 'DUO Detector Results')
 
     duo_rows = [row for row in results_rows if row['detector'] == 'duo_analytic']
     if duo_rows:

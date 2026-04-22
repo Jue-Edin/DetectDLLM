@@ -1,0 +1,33 @@
+{
+  "dataset_tag": "squad_duo_local_prompt10_len100",
+  "source_dataset_dir": "outputs\\paper_prompt_local\\datasets\\squad_duo_local_prompt10_len100",
+  "human_path": "data/human/squad_gemma-2b-instruct_rewrite.original.json",
+  "prompt_mode": "fixed_tokens",
+  "splits": {
+    "train": {
+      "human_path": "data\\generated\\squad_duo_local_prompt10_len100\\human_train.json",
+      "machine_path": "data\\generated\\squad_duo_local_prompt10_len100\\machine_train.json",
+      "paired_path": "data\\generated\\squad_duo_local_prompt10_len100\\paired_train.json",
+      "count": 81
+    },
+    "val": {
+      "human_path": "data\\generated\\squad_duo_local_prompt10_len100\\human_val.json",
+      "machine_path": "data\\generated\\squad_duo_local_prompt10_len100\\machine_val.json",
+      "paired_path": "data\\generated\\squad_duo_local_prompt10_len100\\paired_val.json",
+      "count": 9
+    },
+    "test": {
+      "human_path": "data\\generated\\squad_duo_local_prompt10_len100\\human_test.json",
+      "machine_path": "data\\generated\\squad_duo_local_prompt10_len100\\machine_test.json",
+      "paired_path": "data\\generated\\squad_duo_local_prompt10_len100\\paired_test.json",
+      "count": 5
+    }
+  },
+  "combined": {
+    "human_all_path": "data\\generated\\squad_duo_local_prompt10_len100\\human_all.json",
+    "machine_all_path": "data\\generated\\squad_duo_local_prompt10_len100\\machine_all.json",
+    "paired_all_path": "data\\generated\\squad_duo_local_prompt10_len100\\paired_all.json",
+    "pair_preview_path": "data\\generated\\squad_duo_local_prompt10_len100\\pair_preview.json",
+    "count": 95
+  }
+}

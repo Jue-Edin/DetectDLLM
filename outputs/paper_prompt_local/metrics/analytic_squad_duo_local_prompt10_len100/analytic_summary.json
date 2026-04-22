@@ -1,0 +1,114 @@
+{
+  "rows": [
+    {
+      "detector": "duo_plain_meanlogprob",
+      "mask_ratio": 0.3,
+      "score_sign": -1.0,
+      "val_roc_auc": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "accuracy": 0.9,
+      "balanced_accuracy": 0.9,
+      "tpr@1%fpr": 1.0,
+      "tpr@5%fpr": 1.0,
+      "tpr@10%fpr": 1.0,
+      "threshold": 6.61688232421875
+    },
+    {
+      "detector": "duo_analytic",
+      "mask_ratio": 0.3,
+      "score_sign": -1.0,
+      "val_roc_auc": 0.8024691358024691,
+      "roc_auc": 0.6000000000000001,
+      "pr_auc": 0.5294444444444444,
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "tpr@1%fpr": 0.0,
+      "tpr@5%fpr": 0.0,
+      "tpr@10%fpr": 0.0,
+      "threshold": 8.855431671978467
+    }
+  ],
+  "summary": {
+    "detectors": {
+      "duo_plain_meanlogprob": {
+        "detector": "duo_plain_meanlogprob",
+        "description": "Plain masked-token mean log-probability under DUO.",
+        "mask_ratio": 0.3,
+        "score_sign": -1.0,
+        "threshold": 6.61688232421875,
+        "selection": "highest validation ROC-AUC",
+        "artifacts": {
+          "roc_plot": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\plots\\duo_plain_meanlogprob_roc.svg",
+          "pr_plot": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\plots\\duo_plain_meanlogprob_pr.svg",
+          "hist_plot": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\plots\\duo_plain_meanlogprob_hist.svg",
+          "metrics_json": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\duo_plain_meanlogprob_metrics.json"
+        }
+      },
+      "duo_analytic": {
+        "detector": "duo_analytic",
+        "description": "Analytic normalized masked-token score under DUO.",
+        "mask_ratio": 0.3,
+        "score_sign": -1.0,
+        "threshold": 8.855431671978467,
+        "selection": "highest validation ROC-AUC",
+        "artifacts": {
+          "roc_plot": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\plots\\duo_analytic_roc.svg",
+          "pr_plot": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\plots\\duo_analytic_pr.svg",
+          "hist_plot": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\plots\\duo_analytic_hist.svg",
+          "metrics_json": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\duo_analytic_metrics.json"
+        }
+      }
+    },
+    "best_duo_plain_meanlogprob": {
+      "detector": "duo_plain_meanlogprob",
+      "description": "Plain masked-token mean log-probability under DUO.",
+      "mask_ratio": 0.3,
+      "score_sign": -1.0,
+      "threshold": 6.61688232421875,
+      "selection": "highest validation ROC-AUC",
+      "artifacts": {
+        "roc_plot": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\plots\\duo_plain_meanlogprob_roc.svg",
+        "pr_plot": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\plots\\duo_plain_meanlogprob_pr.svg",
+        "hist_plot": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\plots\\duo_plain_meanlogprob_hist.svg",
+        "metrics_json": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\duo_plain_meanlogprob_metrics.json"
+      }
+    },
+    "best_duo_analytic": {
+      "detector": "duo_analytic",
+      "description": "Analytic normalized masked-token score under DUO.",
+      "mask_ratio": 0.3,
+      "score_sign": -1.0,
+      "threshold": 8.855431671978467,
+      "selection": "highest validation ROC-AUC",
+      "artifacts": {
+        "roc_plot": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\plots\\duo_analytic_roc.svg",
+        "pr_plot": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\plots\\duo_analytic_pr.svg",
+        "hist_plot": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\plots\\duo_analytic_hist.svg",
+        "metrics_json": "outputs\\paper_prompt_local\\metrics\\analytic_squad_duo_local_prompt10_len100\\duo_analytic_metrics.json"
+      }
+    }
+  },
+  "detector_method": "analytic",
+  "tokenizer_load_report": {
+    "loader": "AutoTokenizer.from_pretrained",
+    "path": "models\\duo-distilled",
+    "mode": "offline",
+    "attempts": []
+  },
+  "tokenizer_vocab_audit": {
+    "model_vocab_size": 50258,
+    "tokenizer_base_vocab_size": 50257,
+    "tokenizer_total_vocab_size": 50258,
+    "mask_token": "<|mask|>",
+    "mask_token_id": 50257,
+    "pad_token": "<|endoftext|>",
+    "pad_token_id": 50256,
+    "eos_token": "<|endoftext|>",
+    "eos_token_id": 50256,
+    "aligned_total_vocab": true,
+    "expected_mask_token_id": 50257,
+    "mask_token_matches_expected_last_id": true,
+    "status": "aligned"
+  }
+}
